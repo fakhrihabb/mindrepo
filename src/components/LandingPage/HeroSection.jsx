@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom'
 import { Element } from 'react-scroll'
+import AudioWave from './AudioWave'
 
 function HeroSection() {
   return (
     <Element name="hero" className="hero-section">
       <div className="landing-container">
-        <h1 className="hero-title ">
-          Deconstruct Your Thoughts. Rebuild Your Peace.
-        </h1>
+        <div style={{ position: 'relative' }}>
+          <AudioWave />
+          <h1 className="hero-title " style={{ position: 'relative', zIndex: 2 }}>
+            Deconstruct Your Thoughts. Rebuild Your Peace.
+          </h1>
+        </div>
         <p className="hero-subtitle">
           Transform overwhelming feelings into organized, manageable insights through CBT-based mind mapping.
         </p>
@@ -80,9 +84,9 @@ function HeroSection() {
           </div>
         </div>
         
-        <Link to="/signup" className="btn btn-primary" style={{ fontSize: '16px', padding: '12px 32px' }}>
+        {/* <Link to="/signup" className="btn btn-primary" style={{ fontSize: '16px', padding: '12px 32px' }}>
           Create Your First Repository
-        </Link>
+        </Link> */}
       </div>
     </Element>
   )
