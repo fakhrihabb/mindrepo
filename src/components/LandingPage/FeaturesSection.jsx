@@ -2,12 +2,12 @@ import { Element } from 'react-scroll'
 
 function FeaturesSection() {
   return (
-    <Element name="features" className="landing-section">
+    <Element name="features" className="landing-section bg-secondary">
       <div className="landing-container">
-        <h2 className="h2" style={{ textAlign: 'center', marginBottom: 'var(--space-md)', fontSize: '28px', color: '#FFFFFF' }}>
+        <h2 className="h2" style={{ textAlign: 'center', marginBottom: 'var(--space-md)', fontSize: '28px', color: 'var(--color-text-green)', }}>
           Features & Benefits
         </h2>
-        <p className="body" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto var(--space-2xl)', fontSize: '18px', color: '#F8F9FA' }}>
+        <p className="body" style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto var(--space-2xl)', fontSize: '18px', color: 'var(--color-text-green-secondary)', }}>
           Everything you need for a clearer, more organized mind.
         </p>
         
