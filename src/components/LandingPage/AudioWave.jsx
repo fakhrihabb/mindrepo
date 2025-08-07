@@ -29,7 +29,7 @@ function AudioWave() {
       
       // Exponential decay functions that approach but never reach zero
       // These create smooth, continuous transitions without harsh stops
-      const decayRate = 0.08 // Controls how fast the chaos decays (lower = slower)
+      const decayRate = 0.05 // Controls how fast the chaos decays (lower = slower)
       
       // Exponential decay: starts at 1, approaches 0 but never reaches it
       const chaosLevel = Math.exp(-decayRate * elapsed)

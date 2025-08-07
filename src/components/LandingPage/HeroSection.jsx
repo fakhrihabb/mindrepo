@@ -1,12 +1,29 @@
 import { Link } from 'react-router-dom'
 import { Element } from 'react-scroll'
+import { useState, useEffect } from 'react'
 import AudioWave from './AudioWave'
 
 function HeroSection() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <Element name="hero" className="hero-section">
       <div className="landing-container">
         <div style={{ position: 'relative' }}>
+          <img 
+            src="/src/assets/images/main/mindrepo-icon.svg" 
+            alt="Mindrepo Icon"
+            className={`hero-icon ${isScrolled ? 'hero-icon-hidden' : ''}`}
+          />
           <AudioWave />
           <h1 className="hero-title " style={{ position: 'relative', zIndex: 2 }}>
             Deconstruct Your Thoughts. Rebuild Your Peace.

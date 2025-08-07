@@ -232,6 +232,7 @@ a:hover {
 
 .btn-primary:hover:not(:disabled) {
 	filter: brightness(0.9);
+	color: var(--color-text-white);
 }
 
 .btn-primary:active:not(:disabled) {
@@ -244,8 +245,21 @@ a:hover {
 	border: 1px solid var(--color-primary);
 }
 
-.btn-secondary:hover:not(:disabled) {
+.btn-secondary:hover:not(:disabled):not(.navbar-actions .btn-secondary) {
 	background-color: var(--color-secondary);
+}
+
+.navbar-actions .btn-secondary:hover:not(:disabled) {
+	background-color: transparent;
+}
+
+.navbar-actions .btn-secondary {
+	border: none;
+}
+
+.btn-transparent {
+	background-color: transparent !important;
+	border-color: transparent !important;
 }
 
 .btn-save {
@@ -519,10 +533,45 @@ a:hover {
 	left: 0;
 	right: 0;
 	z-index: 1000;
+	transition: all var(--transition-standard);
+}
+
+.navbar-scrolled {
 	background-color: var(--color-primary);
 	border-bottom: 1px solid var(--color-gray-200);
 	box-shadow: var(--shadow-md);
-	transition: all var(--transition-standard);
+}
+
+.navbar-transparent {
+	background-color: transparent;
+	border-bottom: none;
+	box-shadow: none;
+}
+
+.navbar-transparent .navbar-logo img {
+	opacity: 0;
+	transition: opacity 0.3s ease-out;
+}
+
+.navbar-scrolled .navbar-logo img {
+	opacity: 1;
+	transition: opacity 0.3s ease-out;
+}
+
+/* Hero Icon Styles */
+.hero-icon {
+	position: absolute;
+	top: -80px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60px;
+	height: 60px;
+	z-index: 10;
+	transition: opacity 0.3s ease-out;
+}
+
+.hero-icon-hidden {
+	opacity: 0;
 }
 
 .navbar-container {
@@ -540,6 +589,12 @@ a:hover {
 	color: var(--color-primary);
 	text-decoration: none;
 	transition: color var(--transition-hover);
+	cursor: pointer;
+}
+
+.navbar-logo img {
+	height: 3rem;
+	width: auto;
 }
 
 .navbar-logo:hover {
@@ -561,7 +616,7 @@ a:hover {
 .navbar-link {
 	font-size: var(--font-size-body);
 	font-weight: var(--font-weight-regular);
-	color: var(--color-text-primary);
+	color: var(--color-secondary);
 	text-decoration: none;
 	cursor: pointer;
 	transition: color var(--transition-hover);
@@ -573,6 +628,7 @@ a:hover {
 .navbar-link.active {
 	color: var(--color-primary);
 	background-color: var(--color-secondary);
+	text-decoration: none;
 }
 
 .navbar-actions {
@@ -682,7 +738,7 @@ a:hover {
 /* Features Section */
 .features-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	grid-template-columns: 1fr;
 	gap: var(--space-xl);
 	margin-top: var(--space-2xl);
 }
@@ -693,6 +749,26 @@ a:hover {
 	border-radius: var(--radius-md);
 	padding: var(--space-xl);
 	box-shadow: var(--shadow-md);
+	display: flex;
+	gap: var(--space-xl);
+}
+
+.feature-content {
+	flex: 1;
+}
+
+.feature-image-placeholder {
+	flex: 0 0 300px;
+	aspect-ratio: 3 / 2;
+	background-color: var(--color-gray-100);
+	border: 2px dashed var(--color-gray-300);
+	border-radius: var(--radius-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-text-secondary);
+	font-size: var(--font-size-body);
+	font-weight: var(--font-weight-medium);
 }
 
 .feature-list {
@@ -764,6 +840,16 @@ a:hover {
 	.features-grid {
 		grid-template-columns: 1fr;
 		gap: var(--space-lg);
+	}
+
+	.feature-card {
+		flex-direction: column;
+	}
+
+	.feature-image-placeholder {
+		flex: none;
+		width: 100%;
+		aspect-ratio: 3 / 2;
 	}
 
 	.navbar-actions {
